@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 13:26:47 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:00:15 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ typedef struct	s_item
 	struct s_item	*next;
 }	t_item;
 
-int	ft_is_num(char *str);
-int	ft_fill_stack(t_item **a, char **argv);
+int		ft_is_num(char *str);
+int		ft_fill_stack(t_item **a, char **argv);
+void	ft_free_stack(t_item **stack);
+int		ft_exist_value(t_item **stack, int arg);
+int		ft_is_not_number(char *str);
