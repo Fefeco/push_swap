@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 13:28:26 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:40:37 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_exist_value(t_item **stack, int arg)
 	while (item)
 	{
 		if (arg == item->value)
-			return (perror("Valor, repetido\n"), 1);
+			return (perror("Error\nValor duplicado\n"), 1);
 		item = item->next;
 	}
 	return (0);
@@ -85,7 +85,10 @@ int	ft_fill_stack(t_item **a, char **argv)
 	while (argv[i])
 	{
 		if (ft_is_not_number(argv[i]) || ft_exist_value(a, ft_atoi(argv[i])))
-			return (ft_free_stack(a), 1);
+		{
+			ft_free_stack(a);
+			exit(EXIT_FAILURE);
+		}
 		ft_append_node(a, ft_atoi(argv[i]));
 		++i;
 	}
