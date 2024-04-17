@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 10:09:12 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/15 12:17:14 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/17 10:14:22 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,15 +83,15 @@ OBJECTS = $(SRC_FILES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS) Makefile
-	ar rcs $(NAME) $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS)
 
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re:	fclean all

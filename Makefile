@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/16 10:12:59 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/17 10:27:37 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ OBJS=$(SRC:%.c=$(OBJDIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) Makefile push_swap.h 
-	make -C $(LIBFT_PATH) 
+	@echo "Compilando libft - ESPERE\n"
+	@make -C $(LIBFT_PATH) >/dev/null 2>&1
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
 debug: $(OBJS) Makefile push_swap.h 
@@ -37,15 +38,15 @@ debug: $(OBJS) Makefile push_swap.h
 	$(CC) $(CFLAGS) $(DEB) $(OBJS) $(LIBFT) -o $@
 
 $(OBJDIR)%.o: %.c
-	mkdir -p obj
+	@mkdir -p obj >/dev/null 2>&1
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	make clean -C $(LIBFT_PATH)
+	@make clean -C $(LIBFT_PATH) >/dev/null 2>&1
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	make fclean -C $(LIBFT_PATH)
-	rm -f $(NAME)
+	@make fclean -C $(LIBFT_PATH) >/dev/null 2>&1
+	@rm -f $(NAME)
 
 re: fclean all
