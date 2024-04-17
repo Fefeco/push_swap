@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 11:21:19 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:26:47 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "get_next_line.h"
 #include "ft_printf.h"
 
-#define NUMS "0123456789"
+#define NUMBERS "0123456789"
 
 typedef struct	s_item
 {
