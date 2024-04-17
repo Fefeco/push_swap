@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/17 13:57:12 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/17 17:17:54 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ OBJS=$(SRC:%.c=$(OBJDIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) Makefile push_swap.h 
-	@echo "Compilando libft - ESPERE\n"
-	@make -C $(LIBFT_PATH) >/dev/null 2>&1
+	@make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
 debug: $(OBJS) Makefile push_swap.h 
@@ -39,15 +38,16 @@ debug: $(OBJS) Makefile push_swap.h
 	$(CC) $(CFLAGS) $(DEB) $(OBJS) $(LIBFT) -o $@
 
 $(OBJDIR)%.o: %.c
-	@mkdir -p obj >/dev/null 2>&1
+	@mkdir -p obj
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	@make clean -C $(LIBFT_PATH) >/dev/null 2>&1
-	rm -rf $(OBJDIR)
+	@make clean -C $(LIBFT_PATH)
+	@echo "CLEANING PUSH_SWAP OBJECTS...\n"
+	@rm -rf $(OBJDIR)
 
 fclean: clean
-	@make fclean -C $(LIBFT_PATH) >/dev/null 2>&1
+	@make fclean -C $(LIBFT_PATH)
 	@rm -f $(NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 10:09:12 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/17 10:14:22 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/17 17:17:57 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,7 @@ $(NAME): $(OBJECTS) Makefile
 	@ar rcs $(NAME) $(OBJECTS)
 
 clean:
+	@echo "CLEANING LIBFT OBJECTS...\n"
 	@rm -f $(OBJECTS)
 
 %.o: %.c

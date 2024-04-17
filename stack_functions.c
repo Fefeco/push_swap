@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 16:37:44 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:57:28 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,32 @@ void	ft_append_node(t_item **stack, int value, int index)
 			*stack = (*stack)->next;
 	(*stack)->next = item;
 	*stack = head;
+}
+
+int	ft_exist_value(t_item **stack, int arg)
+{
+	t_item	*item;
+
+	item = *stack;
+	while (item)
+	{
+		if (arg == item->value)
+			return (perror("Error\nDUPLICATED VALUE\n"), 1);
+		item = item->next;
+	}
+	return (0);
+}
+
+int	ft_is_not_number(char *str)
+{
+	if (!*str)
+		return (1);
+	if (*str == '-')
+		++str;
+	while (*str)
+		if (!ft_strchr(NUMBERS, *str++))
+			return (perror("Error\nINVALID CHAR"), 1);
+	return (0);
 }
 
 int	ft_fill_stack(t_item **a, char **argv, int argv_in_heap)
