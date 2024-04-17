@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 13:56:38 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:29:50 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,24 @@ int	ft_exist_value(t_item **stack, int arg)
 	while (item)
 	{
 		if (arg == item->value)
-			return (perror("Error\nValor duplicado\n"), 1);
+			return (perror("Error\nDUPLICATED VALUE\n"), 1);
+		item = item->next;
+	}
+	return (0);
+}
+
+int	ft_is_ordered(t_item **stack)
+{
+	long	prev;
+	t_item	*item;
+
+	item = *stack;
+	prev = (long)INT_MIN - 1;
+	while (item)
+	{
+		if(prev > (long)item->value)
+			return (1);
+		prev = item->value;
 		item = item->next;
 	}
 	return (0);

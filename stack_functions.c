@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 13:56:27 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:12:00 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ int	ft_fill_stack(t_item **a, char **argv)
 		ft_append_node(a, ft_atoi(argv[i]));
 		++i;
 	}
-	ft_free_stack(a);
 	return (0);
 }
