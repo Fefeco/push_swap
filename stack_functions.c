@@ -6,13 +6,13 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 14:12:00 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:37:44 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_append_node(t_item **stack, int value)
+void	ft_append_node(t_item **stack, int value, int index)
 {
 	t_item	*item;
 	t_item	*head;
@@ -22,6 +22,7 @@ void	ft_append_node(t_item **stack, int value)
 	if (!item)
 		return ;
 	item->value = value;
+	item->index = index;
 	item->next = NULL;
 	if (!*stack)
 	{
@@ -35,20 +36,24 @@ void	ft_append_node(t_item **stack, int value)
 	*stack = head;
 }
 
-int	ft_fill_stack(t_item **a, char **argv)
+int	ft_fill_stack(t_item **a, char **argv, int argv_in_heap)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		if (ft_is_not_number(argv[i]) || ft_exist_value(a, ft_atoi(argv[i])))
 		{
 			ft_free_stack(a);
+			if (argv_in_heap)
+				ft_free_array(argv);
 			exit(EXIT_FAILURE);
 		}
-		ft_append_node(a, ft_atoi(argv[i]));
+		ft_append_node(a, ft_atoi(argv[i]), i);
 		++i;
 	}
+	if (argv_in_heap)
+		ft_free_array(argv);
 	return (0);
 }

@@ -6,11 +6,27 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 14:31:45 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:37:23 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_print_node_info(t_item **stack)
+{
+	t_item	*head;
+
+	head = *stack;
+	if (!*stack)
+		return (1);
+	while (*stack)
+	{
+		ft_printf("Index %d | Value %d\n", (*stack)->index, (*stack)->value);
+		*stack = (*stack)->next;
+	}
+	*stack = head;
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -21,7 +37,14 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc < 2 || !argv[1][0])
 		return (1);
-	ft_fill_stack(&a, argv);
+	if (argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		ft_fill_stack(&a, argv, 1);
+	}
+	else
+		ft_fill_stack(&a, ++argv, 0);
+	ft_print_node_info(&a);
 	ft_is_ordered(&a);
 	ft_free_stack(&a);
 	return (0);
