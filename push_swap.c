@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 16:54:39 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:17:44 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || !argv[1][0])
+	if (argc < 2 || !argv[1])
 		return (1);
 	if (argc == 2)
 	{
@@ -47,6 +47,8 @@ int	main(int argc, char **argv)
 	if (ft_is_ordered(&a))
 		return (ft_free_stack(&a), 1);
 	ft_print_node_info(&a);
+	if (ft_lstsize(a) <= 3)
+		ft_order_three(&a);
 	ft_free_stack(&a);
 	return (0);
 }
