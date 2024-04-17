@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 11:34:46 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:02:05 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_free_stack(t_item **stack)
 		*stack = next_item;
 //		ft_printf("LLego\n");
 	}
-	free (stack);
+	free (*stack);
 	stack = NULL;
 }
 
