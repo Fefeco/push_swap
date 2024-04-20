@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/17 17:17:54 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/20 10:22:47 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIBFT=-Llibft -l ftprintf
 INC=-Ilibft/inc
 SRC=push_swap.c \
 	push_swap_utils.c \
-	stack_functions.c
+	fill_stack.c \
+	order.c
 OBJS=$(SRC:%.c=$(OBJDIR)%.o)
 
 .PHONY: all clean fclean re

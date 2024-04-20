@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 16:57:31 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/20 12:15:04 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ int	ft_is_ordered(t_item **stack)
 		item = item->next;
 	}
 	return (0);
+}
+
+size_t	ft_stack_size(t_item *stack)
+{
+	size_t	len;
+
+	len = 0;
+	while (stack)
+	{
+		++len;
+		stack = stack->next;
+	}
+	return (len);
 }

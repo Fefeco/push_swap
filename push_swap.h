@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 16:34:50 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/20 11:15:50 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,5 @@ int		ft_exist_value(t_item **stack, int arg);
 int		ft_is_not_number(char *str);
 int		ft_is_ordered(t_item **stack);
 void	ft_free_array(char **array);
+size_t	ft_stack_size(t_item *stack);
+void	ft_order(t_item **stack);
