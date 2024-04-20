@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 10:13:46 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/01 12:03:27 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:02:20 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 }					t_list;
 
 int			ft_atoi(const char *str);
+long		ft_atol(const char *str);
 void		*ft_calloc(size_t count, size_t size);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);

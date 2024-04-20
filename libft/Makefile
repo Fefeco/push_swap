@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 10:09:12 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/17 17:17:57 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/20 13:03:54 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ PRTF_DIR = src/prtf
 SRC_FILES = $(LIBFT_F) $(GNL_F) $(PRTF_F)
 
 LIBFT_F=$(LIBFT_DIR)/ft_atoi.c \
+		$(LIBFT_DIR)/ft_atol.c \
 		$(LIBFT_DIR)/ft_calloc.c \
 		$(LIBFT_DIR)/ft_isalnum.c \
 		$(LIBFT_DIR)/ft_isalpha.c \

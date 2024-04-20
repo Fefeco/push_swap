@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/17 19:20:17 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:21:15 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,24 +62,33 @@ int	ft_is_not_number(char *str)
 	return (0);
 }
 
-int	ft_fill_stack(t_item **a, char **argv, int argv_in_heap)
+void	ft_fill_stack(t_item **a, char **argv, int argv_in_heap)
 {
-	int	i;
+	int		i;
+	int		error_flag;
+	long	value;
 
 	i = 0;
 	while (argv[i])
 	{
-		if (ft_is_not_number(argv[i]) || ft_exist_value(a, ft_atoi(argv[i])))
+		error_flag = 1;
+		value = ft_atol(argv[i]);
+		if (value > INT_MAX || value == INT_MIN)
 		{
-			ft_free_stack(a);
-			if (argv_in_heap)
-				ft_free_array(argv);
-			exit(EXIT_FAILURE);
+			perror("NUMBER EXCEED TYPE INT\n");
+			break ;
 		}
+		if (ft_is_not_number(argv[i]) || ft_exist_value(a, (int)value))
+			break ;
 		ft_append_node(a, ft_atoi(argv[i]), i);
 		++i;
+		error_flag = 0;
 	}
 	if (argv_in_heap)
 		ft_free_array(argv);
-	return (0);
+	if (error_flag)
+	{
+		ft_free_stack(a);
+		exit(EXIT_FAILURE);
+	}
 }
