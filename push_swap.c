@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 11:20:49 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 11:46:52 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	ft_print_more_info(t_item **stack)	/// PRUEBA
 			ft_printf("PREV NULL            || ");
 		else
 			ft_printf("PREV VAL %d - INDEX %d || ", (*stack)->prev->value,
-					(*stack)->prev->index);
+				(*stack)->prev->index);
 		ft_printf("NODE VAL %d - INDEX %d ||  ", (*stack)->value,
-				(*stack)->index);
+			(*stack)->index);
 		if (!(*stack)->next)
 			ft_printf("NEXT NULL\n");
 		else
 			ft_printf("NEXT VAL %d - INDEX %d\n", (*stack)->next->value,
-				   (*stack)->next->index);
+				(*stack)->next->index);
 		*stack = (*stack)->next;
 	}
 }

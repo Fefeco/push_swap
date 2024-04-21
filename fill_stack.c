@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 10:55:02 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 11:45:14 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,25 +64,34 @@ int	ft_is_not_number(char *str)
 	return (0);
 }
 
+int	ft_get_number(char *str, int *value)
+{
+	long	nb;
+
+	nb = ft_atol(str);
+	if (nb > INT_MAX || nb == INT_MIN)
+	{
+		perror("NUMBER EXCEED TYPE INT\n");
+		return (1);
+	}
+	*value = (int)nb;
+	return (0);
+}
+
 void	ft_fill_stack(t_item **a, char **argv, int argv_in_heap)
 {
-	int		i;
-	int		error_flag;
-	long	value;
+	int	i;
+	int	error_flag;
+	int	value;
 
 	i = 0;
 	while (argv[i])
 	{
 		error_flag = 1;
-		value = ft_atol(argv[i]);
-		if (value > INT_MAX || value == INT_MIN)
-		{
-			perror("NUMBER EXCEED TYPE INT\n");
+		if (ft_is_not_number(argv[i]) || ft_get_number(argv[i], &value)
+			|| ft_exist_value(a, value))
 			break ;
-		}
-		if (ft_is_not_number(argv[i]) || ft_exist_value(a, (int)value))
-			break ;
-		ft_append_node(a, ft_atoi(argv[i]), i);
+		ft_append_node(a, value, i);
 		++i;
 		error_flag = 0;
 	}

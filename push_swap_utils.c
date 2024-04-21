@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 10:43:35 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 11:47:43 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_index(t_item **stack)
 {
-	int	i;
+	int		i;
 	t_item	*head;
 
 	if (!*stack)
