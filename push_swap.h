@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 11:58:45 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:34:33 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,5 @@ void	ft_order(t_item **stack);
 void	set_index(t_item **stack);
 void	ra(t_item **stack);
 void	rra(t_item **stack);
+void	sa(t_item **stack);
+void	ft_print_more_info(t_item **stack);	///PRUEBA

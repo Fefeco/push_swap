@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 12:00:14 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:29:22 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,16 @@ void	rra(t_item **stack)
 	(*stack)->prev = last_item;
 	*stack = last_item;
 	ft_printf("rra\n");	/// PRUEBA
+}
+
+void	sa(t_item **stack)
+{
+
+	(*stack)->prev = (*stack)->next;
+	(*stack)->next = (*stack)->next->next;
+	(*stack)->prev->next = *stack;
+	(*stack)->prev->prev = NULL;
+	(*stack)->next->prev = *stack;
+	*stack = (*stack)->prev;
+	ft_printf("sa\n");	/// PRUEBA
 }

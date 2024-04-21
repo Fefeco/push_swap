@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:23:41 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 12:05:13 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:37:12 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ void	ft_order_three(t_item **stack)
 		ra(stack);
 	if ((*stack)->next == biggest)
 		rra(stack);
-/*	if (*stack->value > *stack->next->value)
+	ft_print_more_info(stack);	/// PRUEBA
+	if ((*stack)->value > (*stack)->next->value)
 		sa(stack);
-	set_index(stack);*/
+/*	set_index(stack);*/
 }
 
 void	ft_order(t_item **stack)
