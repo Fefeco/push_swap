@@ -6,13 +6,36 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/20 13:10:32 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 11:20:49 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_print_node_info(t_item **stack)
+void	ft_print_more_info(t_item **stack)	/// PRUEBA
+{
+	t_item	*head;
+
+	head = *stack;
+	while (*stack)
+	{
+		if (!(*stack)->prev)
+			ft_printf("PREV NULL            || ");
+		else
+			ft_printf("PREV VAL %d - INDEX %d || ", (*stack)->prev->value,
+					(*stack)->prev->index);
+		ft_printf("NODE VAL %d - INDEX %d ||  ", (*stack)->value,
+				(*stack)->index);
+		if (!(*stack)->next)
+			ft_printf("NEXT NULL\n");
+		else
+			ft_printf("NEXT VAL %d - INDEX %d\n", (*stack)->next->value,
+				   (*stack)->next->index);
+		*stack = (*stack)->next;
+	}
+}
+
+int	ft_print_node_info(t_item **stack)	/// PRUEBA
 {
 	t_item	*head;
 
@@ -46,8 +69,10 @@ int	main(int argc, char **argv)
 		ft_fill_stack(&a, ++argv, 0);
 	if (!ft_is_ordered(&a))
 		return (ft_free_stack(&a), 1);
-	ft_print_node_info(&a);
+	ft_print_node_info(&a);	/// PRUEBA
 	ft_order(&a);
+	ft_print_node_info(&a);	/// PRUEBA
+	ft_print_more_info(&a);	/// PRUEBA
 	ft_free_stack(&a);
 	return (0);
 }

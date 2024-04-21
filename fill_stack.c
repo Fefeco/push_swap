@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/20 13:21:15 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 10:55:02 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ void	ft_append_node(t_item **stack, int value, int index)
 	if (!*stack)
 	{
 		*stack = item;
+		(*stack)->prev = NULL;
 		return ;
 	}
 	else
 		while ((*stack)->next)
 			*stack = (*stack)->next;
 	(*stack)->next = item;
+	(*stack)->next->prev = *stack;
 	*stack = head;
 }
 
