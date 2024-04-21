@@ -6,31 +6,17 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:23:41 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 12:37:12 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 14:25:44 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_item	*ft_get_biggest(t_item *stack)
-{
-	t_item	*biggest_node;
-
-	biggest_node = stack;
-	while (stack)
-	{
-		if ((*stack).value > biggest_node->value)
-			biggest_node = stack;
-		stack = (*stack).next;
-	}
-	return (biggest_node);
-}
-
 void	ft_order_three(t_item **stack)
 {
 	t_item	*biggest;
 
-	biggest = ft_get_biggest(*stack);
+	biggest = ft_get_node(*stack, "biggest");
 	if (*stack == biggest)
 		ra(stack);
 	if ((*stack)->next == biggest)
@@ -41,8 +27,24 @@ void	ft_order_three(t_item **stack)
 /*	set_index(stack);*/
 }
 
-void	ft_order(t_item **stack)
+void	ft_order(t_item **stack_a, t_item **stack_b)
 {
-	if (ft_stack_size(*stack) <= 3)
-		ft_order_three(stack);
+	int	stack_size;
+
+	stack_size = ft_stack_size(*stack_a);
+	if (stack_size <= 3)
+		return ft_order_three(stack_a);
+/*	while (stack_size > 3)
+	{
+		ft_push_item(stack_a, stack_b);
+		--stack_size;
+	}
+	ft_order_three(stack_a);*/
+	stack_size = ft_stack_size(*stack_b);
+/*	while (stack_size)
+	{
+		ft_push_item(stack_b, stack_a);
+		--stack_size;
+	}
+*/	ft_sort_stack(stack_a);
 }

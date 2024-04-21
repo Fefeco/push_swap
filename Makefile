@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/21 10:20:21 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/21 14:26:32 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC=push_swap.c \
 	push_swap_utils.c \
 	fill_stack.c \
 	movements.c \
+	sort_stack.c \
 	order.c
 OBJS=$(SRC:%.c=$(OBJDIR)%.o)
 

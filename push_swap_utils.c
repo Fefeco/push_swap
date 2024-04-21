@@ -6,11 +6,29 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 11:47:43 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 14:41:40 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_item	*ft_get_node(t_item *stack, char *big_or_small)
+{
+	t_item	*node;
+
+	node = stack;
+	while (stack)
+	{
+		if (!ft_strncmp(big_or_small, "biggest", ft_strlen("biggest")))
+			if ((*stack).value > node->value)
+				node = stack;
+		if (!ft_strncmp(big_or_small, "smallest", ft_strlen("smallest")))
+			if ((*stack).value < node->value)
+				node = stack;
+		stack = (*stack).next;
+	}
+	return (node);
+}
 
 void	set_index(t_item **stack)
 {
@@ -27,21 +45,6 @@ void	set_index(t_item **stack)
 		*stack = (*stack)->next;
 	}
 	*stack = head;
-}
-
-void	ft_free_stack(t_item **stack)
-{
-	t_item	*next_item;
-
-	if (!stack)
-		return ;
-	while (*stack)
-	{
-		next_item = (*stack)->next;
-		free (*stack);
-		*stack = next_item;
-	}
-	stack = NULL;
 }
 
 void	ft_free_array(char **array)

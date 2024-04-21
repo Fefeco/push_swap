@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 12:39:47 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 14:43:11 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,21 @@ int	ft_print_node_info(t_item **stack)	/// PRUEBA
 	return (0);
 }
 
+void	ft_free_stack(t_item **stack)
+{
+	t_item	*next_item;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		next_item = (*stack)->next;
+		free (*stack);
+		*stack = next_item;
+	}
+	stack = NULL;
+}
+
 int	main(int argc, char **argv)
 {
 	t_item	*a;
@@ -68,10 +83,10 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_fill_stack(&a, ++argv, 0);
-	if (!ft_is_ordered(&a))
+	if (!ft_is_ordered(&a) || ft_stack_size(a) == 1)
 		return (ft_free_stack(&a), 1);
 	ft_print_node_info(&a);	/// PRUEBA
-	ft_order(&a);
+	ft_order(&a, &b);
 	ft_print_node_info(&a);	/// PRUEBA
 	set_index(&a);	/// PRUEBA
 	ft_print_more_info(&a);	/// PRUEBA

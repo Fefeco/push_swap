@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 12:29:22 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:52:54 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	rra(t_item **stack)
 
 void	sa(t_item **stack)
 {
-
 	(*stack)->prev = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
 	(*stack)->prev->next = *stack;
