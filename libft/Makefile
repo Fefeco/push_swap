@@ -6,13 +6,14 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 10:09:12 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/20 13:03:54 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/21 09:34:13 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-CC = clang -Iinc
+CC = clang
 CFLAGS = -Wall -Werror -Wextra
+INC=-Iinc
 
 LIBFT_DIR = src/libft
 GNL_DIR = src/gnl
@@ -91,7 +92,7 @@ clean:
 	@rm -f $(OBJECTS)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 fclean:	clean
 	@rm -f $(NAME)
