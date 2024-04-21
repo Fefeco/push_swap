@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 12:05:37 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/21 12:39:47 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	ft_print_more_info(t_item **stack)	/// PRUEBA
 				(*stack)->next->index);
 		*stack = (*stack)->next;
 	}
+	*stack = head;
 }
 
 int	ft_print_node_info(t_item **stack)	/// PRUEBA
