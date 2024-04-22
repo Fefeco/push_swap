@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 15:04:44 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/22 10:45:24 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_item
 	int				value;
 	int				cost;
 	bool			cheapest;
+	struct s_item	*target;
 	struct s_item	*prev;
 	struct s_item	*next;
 }	t_item;
