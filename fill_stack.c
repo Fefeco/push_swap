@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 11:45:14 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/22 12:15:21 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_append_node(t_item **stack, int value, int index)
 		return ;
 	item->value = value;
 	item->index = index;
+	item->cheapest = false;
 	item->next = NULL;
 	if (!*stack)
 	{
