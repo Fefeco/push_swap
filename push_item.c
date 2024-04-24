@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 14:04:05 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:15:53 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,21 +79,18 @@ void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 
 	len_stack_a = ft_stack_size(*stack_a);
 	len_stack_b = ft_stack_size(*stack_b);
-	ft_printf("\n===== STACK_A =====\n");	/// PRUEBA
+/*	ft_printf("\n===== STACK_A =====\n");	/// PRUEBA
 	ft_print_more_info(stack_a);	/// PRUEBA
 	ft_printf("\n===== STACK_B =====\n");	/// PRUEBA
-	ft_print_more_info(stack_b);	/// PRUEBA
-	if (!len_stack_b && push_to == PUSH_TO_B)
-	{
-		push(stack_a, stack_b);
-		push(stack_a, stack_b);
-		return ;
-	}
+	ft_print_more_info(stack_b);	/// PRUEBA*
+*/	if (len_stack_b < 2 && push_to == PUSH_TO_B)
+		return (push(stack_a, stack_b));
 	while ((*stack_a)->next)
 	{
 		(*stack_a)->len_to_end = len_stack_a - (*stack_a)->index;
 		ft_calc_cost(*stack_a, stack_b, push_to);
 		*stack_a = (*stack_a)->next;
+		set_index(stack_a, stack_b);
 	}
 	while ((*stack_a)->prev)
 		*stack_a = (*stack_a)->prev;
@@ -103,6 +100,4 @@ void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 		push(stack_b, stack_a);
 	else
 		push(stack_a, stack_b);
-	set_index(stack_a);
-	set_index(stack_b);
 }

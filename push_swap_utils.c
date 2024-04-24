@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 11:59:04 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:18:41 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,26 @@ t_item	*ft_get_node(t_item *stack, char target)
 	return (node);
 }
 
-void	set_index(t_item **stack)
+void	set_index(t_item **stack_a, t_item **stack_b)
 {
 	int		i;
-	t_item	*head;
+	int		j;
+	t_item	*tmp;
 
-	if (!*stack)
-		return ;
-	head = *stack;
-	i = 0;
-	while (*stack)
+	tmp = *stack_a;
+	j = 0;
+	while (j < 2)
 	{
-		(*stack)->index = i++;
-		*stack = (*stack)->next;
+		++j;
+		i = 0;
+		while (tmp)
+		{
+			tmp->index = i++;
+			ft_printf("N VAL %d index %d\n", tmp->value, tmp->index);
+			tmp = tmp->next;
+		}
+		tmp = *stack_b;
 	}
-	*stack = head;
 }
 
 void	ft_free_array(char **array)
