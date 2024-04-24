@@ -6,28 +6,30 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/22 12:49:07 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:59:04 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_item	*ft_get_node(t_item *stack, char *targuet)
+t_item	*ft_get_node(t_item *stack, char target)
 {
 	t_item	*node;
-	size_t	len;
 
 	node = stack;
-	len = ft_strlen(target);
 	while (stack)
 	{
-		if (!ft_strncmp(target, "biggest", len))
+		if (target == BIGGEST)
+		{
 			if ((*stack).value > node->value)
 				node = stack;
-		else if (!ft_strncmp(target, "smallest", len))
+		}
+		else if (target == SMALLEST)
+		{
 			if ((*stack).value < node->value)
 				node = stack;
-		else if (!ft_strncmp(target, "cheapest", len))
+		}
+		else if (target == CHEAPEST)
 			if ((*stack).cost < node->cost)
 				node = stack;
 		stack = (*stack).next;
