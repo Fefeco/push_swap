@@ -6,11 +6,11 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/23 14:04:03 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:35:41 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.c"
+#include "push_swap.h"
 
 void	ft_find_target_on_b(t_item *item, t_item *stack)
 {
@@ -38,42 +38,44 @@ void	ft_find_target_on_b(t_item *item, t_item *stack)
 		stack = stack->next;
 	}
 	if (!min_dist)
-		item->target = ft_get_node(stack, "smallest");
-	ft_printf("Target en INDEX %d\n", item->target->index);	/// PRUEBA
+		item->target = ft_get_node(stack, SMALLEST);
+//	ft_printf("Target en INDEX %d\n", item->target->index);	/// PRUEBA
 }
 
-int	ft_no_name(t_item *item, int len_stack_a, int len_stack_b)
+int	ft_calc_moves(t_item *item)
 {
-	if (item->index > item->len_to_end)
-		item->under_middle = false;
-	else
-		item->under_middle = true;
-	if (item->under_limit && item->target->under_limit)
+	item->under_middle = item->index < item->len_to_end; 
+	if (item->under_middle && item->target->under_middle)
 		if (item->index >= item->target->index)
 			return (item->index);
 		else
 			return (item->target->index);
-	else if (item->index > limit_a && item->target->index > limit_b)
-		if (len_stack_a - item->index >= len_stack_b - item->target->index)
-			return (len_stack_a - item->index);
+	else if (!item->under_middle && !item->target->under_middle)
+		if (item->len_to_end >= item->target->len_to_end)
+			return (item->len_to_end);
 		else
-			return (len_stack_b - item->target->index);
+			return (item->target->len_to_end);
 	else
+		if (item->under_middle)
+			return (item->index + item->target->len_to_end);
+		else
+			return (item->len_to_end + item->target->index);
 }
 
 void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
 {
 	if (push_to == PUSH_TO_A)
 		ft_find_target_on_b(item, *stack_to);
-	if (push_to == PUSH_TO_B)
-		ft_find_target_on_a(item, *stack_to);
-	ft_no_name(item);
+	/*if (push_to == PUSH_TO_B)
+		ft_find_target_on_a(item, *stack_to);*/
+	item->cost = ft_calc_moves(item);
 }
 
 void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 {
-	int	len_stack_a;
-	int	len_stack_b;
+	int		len_stack_a;
+	int		len_stack_b;
+	t_item	*cheapest;
 
 	len_stack_a = ft_stack_size(*stack_a);
 	len_stack_b = ft_stack_size(*stack_b);
@@ -89,5 +91,12 @@ void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 		ft_calc_cost(*stack_a, stack_b, push_to);
 		*stack_a = (*stack_a)->next;
 	}
-	cheapest = ft_get_node(*stack_from, "cheapest");
+	if (push_to == PUSH_TO_B)
+		cheapest = ft_get_node(*stack_a, CHEAPEST);
+	if (push_to == PUSH_TO_A)
+		push(stack_b, stack_a);
+	else
+		push(stack_a, stack_b);
+	set_index(stack_a);
+	set_index(stack_b);
 }
