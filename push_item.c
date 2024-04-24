@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 13:34:54 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:04:05 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int	ft_calc_moves(t_item *item)
 
 void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
 {
-	if (push_to == PUSH_TO_A)
+	if (push_to == PUSH_TO_B)
 		ft_find_target_on_b(item, *stack_to);
-	/*if (push_to == PUSH_TO_B)
+	/*if (push_to == PUSH_TO_A)
 		ft_find_target_on_a(item, *stack_to);*/
 	item->cost = ft_calc_moves(item);
 }
