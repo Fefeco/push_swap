@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 12:00:04 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:39:45 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,16 @@ void	push(t_item **stack_from, t_item **stack_to)
 {
 	if (!*stack_to)
 	{
+		//ft_printf("ACA\n");				/// PRUEBA
+		//ft_print_node_info(stack_from);	/// PRUEBA
 		*stack_to = *stack_from;
 		*stack_from = (*stack_from)->next;
 		(*stack_from)->prev = NULL;
 		(*stack_to)->next = NULL;
 		return ;
 	}
+	//ft_printf("Ahora ACA\n");			/// PRUEBA
+	//ft_print_node_info(stack_from);		/// PRUEBA
 	(*stack_to)->prev = *stack_from;
 	*stack_from = (*stack_from)->next;
 	(*stack_to)->prev->next = *stack_to;

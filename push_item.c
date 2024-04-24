@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 12:35:41 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:34:54 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,11 @@ void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 
 	len_stack_a = ft_stack_size(*stack_a);
 	len_stack_b = ft_stack_size(*stack_b);
-	if (!len_stack_b && push_to == PUSH_TO_A)
+	ft_printf("\n===== STACK_A =====\n");	/// PRUEBA
+	ft_print_more_info(stack_a);	/// PRUEBA
+	ft_printf("\n===== STACK_B =====\n");	/// PRUEBA
+	ft_print_more_info(stack_b);	/// PRUEBA
+	if (!len_stack_b && push_to == PUSH_TO_B)
 	{
 		push(stack_a, stack_b);
 		push(stack_a, stack_b);
@@ -91,6 +95,8 @@ void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 		ft_calc_cost(*stack_a, stack_b, push_to);
 		*stack_a = (*stack_a)->next;
 	}
+	while ((*stack_a)->prev)
+		*stack_a = (*stack_a)->prev;
 	if (push_to == PUSH_TO_B)
 		cheapest = ft_get_node(*stack_a, CHEAPEST);
 	if (push_to == PUSH_TO_A)

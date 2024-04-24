@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/24 12:07:10 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/24 13:42:20 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME): $(OBJS) Makefile push_swap.h
 
 debug: $(OBJS) Makefile push_swap.h 
 	make -C $(LIBFT_PATH) 
-	$(CC) $(CFLAGS) $(DEB) $(OBJS) $(LIBFT) -o $@
+	$(CC) $(CFLAGS) $(DEB) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(OBJDIR)%.o: %.c
 	@mkdir -p obj

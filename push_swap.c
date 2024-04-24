@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 11:54:46 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:34:10 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,38 @@
 
 void	ft_print_more_info(t_item **stack)	/// PRUEBA
 {
-	t_item	*head;
+	t_item	*item;
 
-	head = *stack;
-	while (*stack)
+	item = *stack;
+	while (item)
 	{
-		if (!(*stack)->prev)
+		if (!item->prev)
 			ft_printf("PREV NULL            || ");
 		else
-			ft_printf("PREV VAL %d - INDEX %d || ", (*stack)->prev->value,
-				(*stack)->prev->index);
-		ft_printf("NODE VAL %d - INDEX %d ||  ", (*stack)->value,
-			(*stack)->index);
-		if (!(*stack)->next)
+			ft_printf("PREV VAL %d - INDEX %d || ", item->prev->value,
+				item->prev->index);
+		ft_printf("NODE VAL %d - INDEX %d ||  ", item->value, item->index);
+		if (!item->next)
 			ft_printf("NEXT NULL\n");
 		else
-			ft_printf("NEXT VAL %d - INDEX %d\n", (*stack)->next->value,
-				(*stack)->next->index);
-		*stack = (*stack)->next;
+			ft_printf("NEXT VAL %d - INDEX %d\n", item->next->value,
+				item->next->index);
+		item = item->next;
 	}
-	*stack = head;
 }
 
 int	ft_print_node_info(t_item **stack)	/// PRUEBA
 {
-	t_item	*head;
+	t_item	*item;
 
-	head = *stack;
-	if (!*stack)
-		return (1);
-	while (*stack)
+	item = *stack;
+	if (!item)
+		return (ft_printf("(null)\n"), 1);
+	while (item)
 	{
-		ft_printf("Index %d | Value %d\n", (*stack)->index, (*stack)->value);
-		*stack = (*stack)->next;
+		ft_printf("Index %d | Value %d\n", item->index, item->value);
+		item = item->next;
 	}
-	*stack = head;
 	return (0);
 }
 
@@ -85,11 +82,12 @@ int	main(int argc, char **argv)
 		ft_fill_stack(&a, ++argv, 0);
 	if (!ft_is_ordered(&a) || ft_stack_size(a) == 1)
 		return (ft_free_stack(&a), 1);
-	ft_print_node_info(&a);	/// PRUEBA
+//	ft_printf("\n===== STACK A =====\n");	/// PRUEBA
+//	ft_print_node_info(&a);					/// PRUEBA
 	ft_order(&a, &b);
-	ft_print_node_info(&a);	/// PRUEBA
-	set_index(&a);	/// PRUEBA
-	ft_print_more_info(&a);	/// PRUEBA
+//	ft_print_node_info(&a);					/// PRUEBA
+//	set_index(&a);							/// PRUEBA
+//	ft_print_more_info(&a);					/// PRUEBA
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
