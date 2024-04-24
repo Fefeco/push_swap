@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/22 11:50:00 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:00:04 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	push(t_item **stack_from, t_item **stack_to)
 		*stack_to = *stack_from;
 		*stack_from = (*stack_from)->next;
 		(*stack_from)->prev = NULL;
-		(*stack_to)->next == NULL;
+		(*stack_to)->next = NULL;
 		return ;
 	}
 	(*stack_to)->prev = *stack_from;
