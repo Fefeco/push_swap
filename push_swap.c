@@ -6,32 +6,39 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 13:34:10 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:17:53 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_more_info(t_item **stack)	/// PRUEBA
+int	ft_print_more_info(t_item **stack)	/// PRUEBA
 {
 	t_item	*item;
 
 	item = *stack;
+	if (!item)
+		return (ft_printf("(null)\n"), 1);
 	while (item)
 	{
 		if (!item->prev)
-			ft_printf("PREV NULL            || ");
+			ft_printf("PREV NULL         || ");
 		else
-			ft_printf("PREV VAL %d - INDEX %d || ", item->prev->value,
+			ft_printf("PREV VAL %d - I %d || ", item->prev->value,
 				item->prev->index);
-		ft_printf("NODE VAL %d - INDEX %d ||  ", item->value, item->index);
+		ft_printf("N VAL %d - I %d", item->value, item->index);
+		if (item->target)
+			ft_printf(" T %d ||  ", item->target->index);
+		else
+			ft_printf(" ||  ");
 		if (!item->next)
 			ft_printf("NEXT NULL\n");
 		else
-			ft_printf("NEXT VAL %d - INDEX %d\n", item->next->value,
+			ft_printf("NEXT VAL %d - I %d\n", item->next->value,
 				item->next->index);
 		item = item->next;
 	}
+	return (0);
 }
 
 int	ft_print_node_info(t_item **stack)	/// PRUEBA

@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 12:26:34 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 14:10:43 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	sa(t_item **stack);
 void	push(t_item **stack_from, t_item **stack_to);
 void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to);
 void	ft_sort_stack(t_item **stack);
-void	ft_print_more_info(t_item **stack);	///PRUEBA
+int		ft_print_more_info(t_item **stack);	///PRUEBA
 int		ft_print_node_info(t_item **stack);	///PRUEBA
