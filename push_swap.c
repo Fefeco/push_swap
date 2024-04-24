@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/21 14:43:11 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:54:46 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int	main(int argc, char **argv)
 	set_index(&a);	/// PRUEBA
 	ft_print_more_info(&a);	/// PRUEBA
 	ft_free_stack(&a);
+	ft_free_stack(&b);
 	return (0);
 }
