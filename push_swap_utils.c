@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 17:26:11 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:18:09 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	set_index(t_item **stack_a, t_item **stack_b)
 		}
 		if (stack_b)
 			tmp = *stack_b;
-		else
-			tmp = NULL;
 	}
 }
 

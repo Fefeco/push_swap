@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 17:57:26 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 20:20:18 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,10 @@ int	main(int argc, char **argv)
 //	ft_print_node_info(&a);					/// PRUEBA
 //	set_index(&a);							/// PRUEBA
 //	ft_print_more_info(&a);					/// PRUEBA
+	ft_printf("\n===== FIN STACK A =====\n");	/// PRUEBA
+	ft_print_node_info(&a);					/// PRUEBA
+	ft_printf("\n===== FIN STACK B =====\n");	/// PRUEBA
+	ft_print_node_info(&b);					/// PRUEBA
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
