@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 17:28:57 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:23:36 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #define PUSH_TO_A 1
 #define PUSH_TO_B 0
 
-typedef struct	s_item
+typedef struct s_item
 {
 	int				index;
 	int				len_to_end;
@@ -56,5 +56,6 @@ void	rrr(t_item **stack, t_item **stack_b);
 void	push(t_item **stack_from, t_item **stack_to);
 void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to);
 void	ft_sort_stack(t_item **stack);
+void	ft_set_mid(t_item *stk_from, t_item *stk_to, int len_from, int len_to);
 int		ft_print_more_info(t_item **stack);	///PRUEBA
 int		ft_print_node_info(t_item **stack);	///PRUEBA
