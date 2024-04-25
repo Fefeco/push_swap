@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.c                                        :+:      :+:    :+:   */
+/*   *stack_idements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 10:57:26 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:13:13 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_item **stack)
+void	rr(t_item **stack_a, t_item **stack_b)
+{
+	rx(stack_a, NULL);
+	rx(stack_b, NULL);
+	ft_printf("rr\n");
+}
+
+void	rrr(t_item **stack_a, t_item **stack_b)
+{
+	rrx(stack_a, NULL);
+	rrx(stack_b, NULL);
+	ft_printf("rrr\n");
+}
+
+void	rx(t_item **stack, char *stack_id)
 {
 	t_item	*last_item;
 
@@ -25,9 +39,11 @@ void	ra(t_item **stack)
 	*stack = (*stack)->next;
 	last_item->next = NULL;
 	(*stack)->prev = NULL;
+	if (stack_id)
+		ft_printf("r%s\n", stack_id);
 }
 
-void	rra(t_item **stack)
+void	rrx(t_item **stack, char *stack_id)
 {
 	t_item	*last_item;
 
@@ -39,9 +55,11 @@ void	rra(t_item **stack)
 	last_item->next = *stack;
 	(*stack)->prev = last_item;
 	*stack = last_item;
+	if (stack_id)
+		ft_printf("rr%s\n", stack_id);
 }
 
-void	sa(t_item **stack)
+void	sx(t_item **stack, char *stack_id)
 {
 	(*stack)->prev = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
@@ -49,6 +67,8 @@ void	sa(t_item **stack)
 	(*stack)->prev->prev = NULL;
 	(*stack)->next->prev = *stack;
 	*stack = (*stack)->prev;
+	if (stack_id)
+		ft_printf("s%s\n", stack_id);
 }
 
 void	push(t_item **stack_from, t_item **stack_to)

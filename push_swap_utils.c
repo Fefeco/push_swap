@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 11:04:25 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:26:11 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@ t_item	*ft_get_node(t_item *stack, char target)
 	{
 		if (target == BIGGEST)
 		{
-			if ((*stack).value > node->value)
+			if (stack->value > node->value)
 				node = stack;
 		}
 		else if (target == SMALLEST)
 		{
-			if ((*stack).value < node->value)
+			if (stack->value < node->value)
 				node = stack;
 		}
 		else if (target == CHEAPEST)
-			if ((*stack).cost < node->cost)
+		{
+			if (stack->cost < node->cost)
 				node = stack;
-		stack = (*stack).next;
+		}
+		stack = stack->next;
 	}
 	return (node);
 }

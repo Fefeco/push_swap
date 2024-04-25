@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 18:13:32 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:28:57 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ size_t	ft_stack_size(t_item *stack);
 void	ft_order(t_item **stack_a, t_item **stack_b);
 t_item	*ft_get_node(t_item *stack, char target);
 void	set_index(t_item **stack_a, t_item **stack_b);
-void	ra(t_item **stack);
-void	rra(t_item **stack);
-void	sa(t_item **stack);
+void	sx(t_item **stack, char *stack_id);
+void	rx(t_item **stack, char *stack_id);
+void	rrx(t_item **stack, char *stack_id);
+void	rr(t_item **stack, t_item **stack_b);
+void	rrr(t_item **stack, t_item **stack_b);
 void	push(t_item **stack_from, t_item **stack_to);
 void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to);
 void	ft_sort_stack(t_item **stack);

@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:23:41 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 10:55:47 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:31:16 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ void	ft_order_three(t_item **stack)
 
 	biggest_node = ft_get_node(*stack, BIGGEST);
 	if (*stack == biggest_node)
-		ra(stack);
+		rx(stack, "a");
 	if ((*stack)->next == biggest_node)
-		rra(stack);
+		rrx(stack, "a");
 	if ((*stack)->value > (*stack)->next->value)
-		sa(stack);
-	ft_print_more_info(stack);	/// PRUEBA
+		sx(stack, "a");
 	set_index(stack, NULL);
 }
 
@@ -35,7 +34,13 @@ void	ft_order(t_item **stack_a, t_item **stack_b)
 	if (stack_size <= 3)
 		return (ft_order_three(stack_a));
 	while (stack_size-- > 3)
+	{
 		ft_push_item(stack_a, stack_b, PUSH_TO_B);
+/*		ft_printf("===== STACK A =====\n");
+		ft_print_node_info(stack_a);
+		ft_printf("\n===== STACK B =====\n");
+		ft_print_node_info(stack_b);*/
+	}
 	ft_order_three(stack_a);
 /*	stack_size = ft_stack_size(*stack_b);
 	while (stack_size)
@@ -43,13 +48,5 @@ void	ft_order(t_item **stack_a, t_item **stack_b)
 		ft_push_item(stack_b, stack_a, PUSH_TO_B);
 		--stack_size;
 	}*/
-	ft_printf("\n\n===== STACK A =====\n");		/// PRUEBA
-	ft_print_node_info(stack_a);				/// PRUEBA
-	ft_printf("\n===== STACK B =====\n");		/// PRUEBA
-	ft_print_node_info(stack_b);				/// PRUEBA
 	ft_sort_stack(stack_a);
-	ft_printf("\n\n===== STACK A =====\n");		/// PRUEBA
-	ft_print_node_info(stack_a);				/// PRUEBA
-	ft_printf("\n===== STACK B =====\n");		/// PRUEBA
-	ft_print_node_info(stack_b);				/// PRUEBA
 }
