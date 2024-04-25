@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 18:15:53 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 11:01:56 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ void	ft_find_target_on_b(t_item *item, t_item *stack)
 				min_dist = dist;
 				item->target = stack;
 			}
-			else
-				if (min_dist > dist)
-				{
-					min_dist = dist;
-					item->target = stack;
-				}
+			else if (min_dist > dist)
+			{
+				min_dist = dist;
+				item->target = stack;
+			}
 		}
 		stack = stack->next;
 	}
@@ -44,22 +43,28 @@ void	ft_find_target_on_b(t_item *item, t_item *stack)
 
 int	ft_calc_moves(t_item *item)
 {
-	item->under_middle = item->index < item->len_to_end; 
+	item->under_middle = item->index < item->len_to_end;
 	if (item->under_middle && item->target->under_middle)
+	{
 		if (item->index >= item->target->index)
 			return (item->index);
 		else
 			return (item->target->index);
+	}
 	else if (!item->under_middle && !item->target->under_middle)
+	{
 		if (item->len_to_end >= item->target->len_to_end)
 			return (item->len_to_end);
 		else
 			return (item->target->len_to_end);
+	}
 	else
+	{
 		if (item->under_middle)
 			return (item->index + item->target->len_to_end);
 		else
 			return (item->len_to_end + item->target->index);
+	}
 }
 
 void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
@@ -82,8 +87,8 @@ void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
 /*	ft_printf("\n===== STACK_A =====\n");	/// PRUEBA
 	ft_print_more_info(stack_a);	/// PRUEBA
 	ft_printf("\n===== STACK_B =====\n");	/// PRUEBA
-	ft_print_more_info(stack_b);	/// PRUEBA*
-*/	if (len_stack_b < 2 && push_to == PUSH_TO_B)
+	ft_print_more_info(stack_b);	/// PRUEBA*/
+	if (len_stack_b < 2 && push_to == PUSH_TO_B)
 		return (push(stack_a, stack_b));
 	while ((*stack_a)->next)
 	{
