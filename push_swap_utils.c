@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:40:49 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/24 18:18:41 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/25 10:38:17 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ void	set_index(t_item **stack_a, t_item **stack_b)
 		i = 0;
 		while (tmp)
 		{
+			if (!tmp)
+				break ;
 			tmp->index = i++;
-			ft_printf("N VAL %d index %d\n", tmp->value, tmp->index);
 			tmp = tmp->next;
 		}
-		tmp = *stack_b;
+		tmp = (stack_b) ? *stack_b : NULL;
 	}
 }
 
