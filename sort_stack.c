@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 13:37:41 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 18:17:19 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/26 14:57:01 by fedeito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	ft_sort_stack(t_item **stack)
 {
-	int		stack_size;
 	t_item	*smallest;
 
-	stack_size = ft_stack_size(*stack);
 	smallest = ft_get_node(*stack, SMALLEST);
 	while (smallest->index != 0)
 	{
