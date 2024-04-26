@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 20:20:18 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:15:25 by fedeito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ int	ft_print_node_info(t_item **stack)	/// PRUEBA
 
 	item = *stack;
 	if (!item)
-		return (ft_printf("(null)\n"), 1);
+		return (ft_printf("(null)\n\n"), 1);
 	while (item)
 	{
 		ft_printf("Index %d | Value %d\n", item->index, item->value);
 		item = item->next;
 	}
+	ft_printf("\n");
 	return (0);
 }
 
