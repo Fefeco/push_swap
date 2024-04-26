@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 20:30:31 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:45:34 by fedeito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,19 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
 	t_item	*head;
 
 	head = item;
-	while(item && push_to == PUSH_TO_B)
+	while(item)
 	{
-		ft_find_target_on_b(item, *stack_to);
-		item = item->next;
-	}
-	while(item && push_to == PUSH_TO_A)
-	{
-		ft_find_target_on_a(item, *stack_to);
+		if (push_to == PUSH_TO_B)
+		{
+			ft_find_target_on_b(item, *stack_to);
+			ft_printf("STACK A -> ");
+		}
+		else if (push_to == PUSH_TO_A)
+		{
+			ft_printf("STACK B -> ");
+			ft_find_target_on_a(item, *stack_to);
+		}
+		ft_printf("ITEM %d -> TGT %d val= %d\n", item->value, item->target->index, item->target->value);
 		item = item->next;
 	}
 	item = head;
@@ -150,37 +155,17 @@ void	ft_prep_to_push(t_item **stack_from, t_item **stack_to)
 	}
 }
 
-void	ft_push_item(t_item **stack_a, t_item **stack_b, int push_to)
+void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to)
 {
-	t_item	*stack_from;
-	t_item	*stack_to;
 	int	len_stk_from;
 	int	len_stk_to;
 
-	if (push_to == PUSH_TO_A)
-	{
-		stack_from = *stack_b;
-		stack_to = *stack_a;
-	}
-	else
-	{
-		stack_from = *stack_a;
-		stack_to = *stack_b;
-	}
-	len_stk_from = ft_stack_size(stack_from);
-	len_stk_to = ft_stack_size(stack_to);
+	len_stk_from = ft_stack_size(*stack_from);
+	len_stk_to = ft_stack_size(*stack_to);
 	if (len_stk_to < 2 && push_to == PUSH_TO_B)
-		return (push(stack_a, stack_b));
-	ft_set_mid(stack_from, stack_to, len_stk_from, len_stk_to);
-	ft_calc_cost(stack_from, &stack_to, push_to);
-	if (push_to == PUSH_TO_A)
-	{
-		ft_prep_to_push(stack_b, stack_a);
-		push(stack_b, stack_a);
-	}
-	else
-	{
-		ft_prep_to_push(stack_a, stack_b);
-		push(stack_a, stack_b);
-	}
+		return (push(stack_from, stack_to));
+	ft_set_mid(*stack_from, *stack_to, len_stk_from, len_stk_to);
+	ft_calc_cost(*stack_from, stack_to, push_to);
+	ft_prep_to_push(stack_from, stack_to);
+	push(stack_from, stack_to);
 }
