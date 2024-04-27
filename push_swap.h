@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 13:02:35 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 14:59:07 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ void	push(t_item **stack_from, t_item **stack_to, char stk_id);
 void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to);
 void	ft_sort_stack(t_item **stack, char stk_id);
 void	ft_set_mid(t_item *stk_from, t_item *stk_to, int len_from, int len_to);
+void	ft_find_target_on_a(t_item *item, t_item *stack_to);
+void	ft_find_target_on_b(t_item *item, t_item *stack_to);
 int		ft_print_more_info(t_item **stack);	///PRUEBA
 int		ft_print_node_info(t_item **stack);	///PRUEBA
