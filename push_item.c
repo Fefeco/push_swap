@@ -6,66 +6,60 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/26 15:45:34 by fedeito          ###   ########.fr       */
+/*   Updated: 2024/04/27 10:37:12 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_find_target_on_b(t_item *item, t_item *stack)
+void	ft_find_target_on_b(t_item *item, t_item *stack_to)
 {
 	int		dist;
 	int		min_dist;
+	t_item	*head;
 
+	head = stack_to;
 	min_dist = 0;
-	while (stack->next && min_dist != 1)
+	while (stack_to && min_dist != 1)
 	{
-		if (item->value < stack->value)
+		if (item->value > stack_to->value)
 		{
-			dist = stack->value - item->value;
-			if (!min_dist)
+			dist = item->value - stack_to->value;
+			if (dist < min_dist || !min_dist)
 			{
 				min_dist = dist;
-				item->target = stack;
-			}
-			if (min_dist > dist)
-			{
-				min_dist = dist;
-				item->target = stack;
+				item->target = stack_to;
 			}
 		}
-		stack = stack->next;
+		stack_to = stack_to->next;
 	}
 	if (!min_dist)
-		item->target = ft_get_node(stack, SMALLEST);
+		item->target = ft_get_node(head, BIGGEST);
 }
 
-void	ft_find_target_on_a(t_item *item, t_item *stack)
+void	ft_find_target_on_a(t_item *item, t_item *stack_to)
 {
 	int		dist;
 	int		min_dist;
+	t_item	*head;
 
+	head = stack_to;
 	min_dist = 0;
-	while (stack->next && min_dist != 1)
+	while (stack_to && min_dist != 1)
 	{
-		if (item->value > stack->value)
+		if (item->value < stack_to->value)
 		{
-			dist = stack->value - item->value;
-			if (!min_dist)
+			dist = stack_to->value - item->value;
+			if (dist < min_dist || !min_dist)
 			{
 				min_dist = dist;
-				item->target = stack;
-			}
-			if (min_dist > dist)
-			{
-				min_dist = dist;
-				item->target = stack;
+				item->target = stack_to;
 			}
 		}
-		stack = stack->next;
+		stack_to = stack_to->next;
 	}
 	if (!min_dist)
-		item->target = ft_get_node(stack, BIGGEST);
+		item->target = ft_get_node(head, SMALLEST);
 }
 
 int	ft_calc_moves(t_item *item)
@@ -99,7 +93,7 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
 	t_item	*head;
 
 	head = item;
-	while(item)
+	while (item)
 	{
 		if (push_to == PUSH_TO_B)
 		{
@@ -111,7 +105,7 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
 			ft_printf("STACK B -> ");
 			ft_find_target_on_a(item, *stack_to);
 		}
-		ft_printf("ITEM %d -> TGT %d val= %d\n", item->value, item->target->index, item->target->value);
+		ft_printf("ITEM %d -> TGT %d INDEX= %d\n", item->value, item->target->value, item->target->index);
 		item = item->next;
 	}
 	item = head;
