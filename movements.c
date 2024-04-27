@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 20:41:26 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 11:53:43 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	rr(t_item **stack_a, t_item **stack_b)
 {
-	rx(stack_a, NULL);
-	rx(stack_b, NULL);
+	rx(stack_a, 0);
+	rx(stack_b, 0);
 	ft_printf("rr\n");
 }
 
 void	rrr(t_item **stack_a, t_item **stack_b)
 {
-	rrx(stack_a, NULL);
-	rrx(stack_b, NULL);
+	rrx(stack_a, 0);
+	rrx(stack_b, 0);
 	ft_printf("rrr\n");
 }
 
-void	rx(t_item **stack, char *stack_id)
+void	rx(t_item **stack, char r_to)
 {
 	t_item	*last_item;
 
@@ -39,11 +39,11 @@ void	rx(t_item **stack, char *stack_id)
 	*stack = (*stack)->next;
 	last_item->next = NULL;
 	(*stack)->prev = NULL;
-	if (stack_id)
-		ft_printf("r%s\n", stack_id);
+	if (r_to)
+		ft_printf("r%c\n", r_to);
 }
 
-void	rrx(t_item **stack, char *stack_id)
+void	rrx(t_item **stack, char rr_to)
 {
 	t_item	*last_item;
 
@@ -55,11 +55,11 @@ void	rrx(t_item **stack, char *stack_id)
 	last_item->next = *stack;
 	(*stack)->prev = last_item;
 	*stack = last_item;
-	if (stack_id)
-		ft_printf("rr%s\n", stack_id);
+	if (rr_to)
+		ft_printf("rr%c\n", rr_to);
 }
 
-void	sx(t_item **stack, char *stack_id)
+void	sx(t_item **stack, char s_to)
 {
 	(*stack)->prev = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
@@ -67,8 +67,8 @@ void	sx(t_item **stack, char *stack_id)
 	(*stack)->prev->prev = NULL;
 	(*stack)->next->prev = *stack;
 	*stack = (*stack)->prev;
-	if (stack_id)
-		ft_printf("s%s\n", stack_id);
+	if (s_to)
+		ft_printf("s%c\n", s_to);
 }
 
 void	push(t_item **stack_from, t_item **stack_to)

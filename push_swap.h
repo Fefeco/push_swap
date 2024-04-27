@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/25 19:23:36 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 11:57:23 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 #define BIGGEST 'B'
 #define SMALLEST 'S'
 #define CHEAPEST 'C'
-#define PUSH_TO_A 1
-#define PUSH_TO_B 0
+#define PUSH_TO_A 'a'
+#define PUSH_TO_B 'b'
 
 typedef struct s_item
 {
@@ -48,14 +48,14 @@ size_t	ft_stack_size(t_item *stack);
 void	ft_order(t_item **stack_a, t_item **stack_b);
 t_item	*ft_get_node(t_item *stack, char target);
 void	set_index(t_item **stack_a, t_item **stack_b);
-void	sx(t_item **stack, char *stack_id);
-void	rx(t_item **stack, char *stack_id);
-void	rrx(t_item **stack, char *stack_id);
+void	sx(t_item **stack, char push_to);
+void	rx(t_item **stack, char push_to);
+void	rrx(t_item **stack, char push_to);
 void	rr(t_item **stack, t_item **stack_b);
 void	rrr(t_item **stack, t_item **stack_b);
 void	push(t_item **stack_from, t_item **stack_to);
-void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to);
-void	ft_sort_stack(t_item **stack);
+void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to);
+void	ft_sort_stack(t_item **stack, char stk_id);
 void	ft_set_mid(t_item *stk_from, t_item *stk_to, int len_from, int len_to);
 int		ft_print_more_info(t_item **stack);	///PRUEBA
 int		ft_print_node_info(t_item **stack);	///PRUEBA

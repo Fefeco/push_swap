@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 10:37:12 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 12:01:47 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_calc_moves(t_item *item)
 	}
 }
 
-void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
+void	ft_calc_cost(t_item *item, t_item **stack_to, char push_to)
 {
 	t_item	*head;
 
@@ -116,10 +116,14 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, int push_to)
 	}
 }
 
-void	ft_prep_to_push(t_item **stack_from, t_item **stack_to)
+void	ft_prep_to_push(t_item **stack_from, t_item **stack_to, char push_to)
 {
 	t_item	*cheapest;
+	int		push_from;
 
+	push_from = 'a';
+	if (push_from == push_to)
+		push_from = 'b';
 	cheapest = ft_get_node(*stack_from, CHEAPEST);
 	while (cheapest->index != 0 && cheapest->target->index != 0)
 	{
@@ -134,22 +138,22 @@ void	ft_prep_to_push(t_item **stack_from, t_item **stack_to)
 	while (cheapest->index != 0)
 	{
 		if (cheapest->under_middle)
-			rx(stack_from, "a");
+			rx(stack_from, push_from);
 		else
-			rrx(stack_from, "a");
+			rrx(stack_from, push_from);
 		set_index(stack_from, NULL);
 	}
 	while (cheapest->target->index != 0)
 	{
 		if (cheapest->target->under_middle)
-			rx(stack_to, "b");
+			rx(stack_to, push_to);
 		else
-			rrx(stack_to, "b");
+			rrx(stack_to, push_to);
 		set_index(stack_to, NULL);
 	}
 }
 
-void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to)
+void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to)
 {
 	int	len_stk_from;
 	int	len_stk_to;
@@ -160,6 +164,6 @@ void	ft_push_item(t_item **stack_from, t_item **stack_to, int push_to)
 		return (push(stack_from, stack_to));
 	ft_set_mid(*stack_from, *stack_to, len_stk_from, len_stk_to);
 	ft_calc_cost(*stack_from, stack_to, push_to);
-	ft_prep_to_push(stack_from, stack_to);
+	ft_prep_to_push(stack_from, stack_to, push_to);
 	push(stack_from, stack_to);
 }
