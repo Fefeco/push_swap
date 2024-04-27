@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/26 15:15:25 by fedeito          ###   ########.fr       */
+/*   Updated: 2024/04/27 14:53:37 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,19 @@ int	main(int argc, char **argv)
 		ft_fill_stack(&a, ++argv, 0);
 	if (!ft_is_ordered(&a) || ft_stack_size(a) == 1)
 		return (ft_free_stack(&a), 1);
-	ft_printf("\n===== STACK A =====\n");	/// PRUEBA
-	ft_print_node_info(&a);					/// PRUEBA
-	ft_printf("\n===== STACK B =====\n");	/// PRUEBA
-	ft_print_node_info(&b);					/// PRUEBA
+/////////////////////  PRUEBA  //////////////////////////
+	ft_printf("\n===== STACK A =====\n");
+	ft_print_node_info(&a);
+	ft_printf("\n===== STACK B =====\n");
+	ft_print_node_info(&b);
+/////////////////////    FIN   //////////////////////////
 	ft_order(&a, &b);
-//	ft_print_node_info(&a);					/// PRUEBA
-//	set_index(&a);							/// PRUEBA
-//	ft_print_more_info(&a);					/// PRUEBA
-	ft_printf("\n===== FIN STACK A =====\n");	/// PRUEBA
-	ft_print_node_info(&a);					/// PRUEBA
-	ft_printf("\n===== FIN STACK B =====\n");	/// PRUEBA
-	ft_print_node_info(&b);					/// PRUEBA
+/////////////////////  PRUEBA  //////////////////////////
+	ft_printf("\n===== FIN STACK A =====\n");
+	ft_print_node_info(&a);
+	ft_printf("\n===== FIN STACK B =====\n");
+	ft_print_node_info(&b);
+/////////////////////    FIN   //////////////////////////
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);

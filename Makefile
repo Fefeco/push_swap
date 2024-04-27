@@ -6,7 +6,7 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/25 19:24:06 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/27 14:42:55 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC=push_swap.c \
 	push_swap_utils.c \
 	fill_stack.c \
 	movements.c \
+	movements_aux.c \
 	sort_stack.c \
 	push_item.c \
 	push_item_aux.c \
