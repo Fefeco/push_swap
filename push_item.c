@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 12:01:47 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 13:02:59 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,13 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, char push_to)
 	while (item)
 	{
 		if (push_to == PUSH_TO_B)
-		{
 			ft_find_target_on_b(item, *stack_to);
-			ft_printf("STACK A -> ");
-		}
 		else if (push_to == PUSH_TO_A)
 		{
 			ft_printf("STACK B -> ");
 			ft_find_target_on_a(item, *stack_to);
+		ft_printf("ITEM %d COST %d -> TGT %d INDEX= %d\n", item->value, item->cost, item->target->value, item->target->index);
 		}
-		ft_printf("ITEM %d -> TGT %d INDEX= %d\n", item->value, item->target->value, item->target->index);
 		item = item->next;
 	}
 	item = head;
@@ -161,9 +158,9 @@ void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to)
 	len_stk_from = ft_stack_size(*stack_from);
 	len_stk_to = ft_stack_size(*stack_to);
 	if (len_stk_to < 2 && push_to == PUSH_TO_B)
-		return (push(stack_from, stack_to));
+		return (push(stack_from, stack_to, push_to));
 	ft_set_mid(*stack_from, *stack_to, len_stk_from, len_stk_to);
 	ft_calc_cost(*stack_from, stack_to, push_to);
 	ft_prep_to_push(stack_from, stack_to, push_to);
-	push(stack_from, stack_to);
+	push(stack_from, stack_to, push_to);
 }

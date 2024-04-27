@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:05:01 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 11:57:23 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 13:02:35 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rx(t_item **stack, char push_to);
 void	rrx(t_item **stack, char push_to);
 void	rr(t_item **stack, t_item **stack_b);
 void	rrr(t_item **stack, t_item **stack_b);
-void	push(t_item **stack_from, t_item **stack_to);
+void	push(t_item **stack_from, t_item **stack_to, char stk_id);
 void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to);
 void	ft_sort_stack(t_item **stack, char stk_id);
 void	ft_set_mid(t_item *stk_from, t_item *stk_to, int len_from, int len_to);
