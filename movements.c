@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 11:53:43 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/27 13:32:34 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	sx(t_item **stack, char s_to)
 		ft_printf("s%c\n", s_to);
 }
 
-void	push(t_item **stack_from, t_item **stack_to)
+void	push(t_item **stack_from, t_item **stack_to, char push_to)
 {
 	if (!*stack_to)
 	{
@@ -84,7 +84,7 @@ void	push(t_item **stack_from, t_item **stack_to)
 	{
 		(*stack_to)->prev = *stack_from;
 		(*stack_from)->next = *stack_to;
-		stack_to = stack_from;
+		*stack_to = (*stack_to)->prev;
 		*stack_from = NULL;
 	}
 	else
@@ -93,7 +93,7 @@ void	push(t_item **stack_from, t_item **stack_to)
 		*stack_from = (*stack_from)->next;
 		(*stack_to)->prev->next = *stack_to;
 		*stack_to = (*stack_to)->prev;
-		(*stack_from)->prev = NULL;
 	}
 	set_index(stack_from, stack_to);
+	ft_printf("p%c\n", push_to);
 }
