@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 11:54:34 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:35:54 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,32 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, char push_to)
 	}
 }
 
+void	ft_prep_to_push_aux(t_item *cheapest, t_item **stack_from,
+		t_item **stack_to, char push_to)
+{
+	int		push_from;
+
+	push_from = 'a';
+	if (push_from == push_to)
+		push_from = 'b';
+	while (cheapest->index != 0)
+	{
+		if (cheapest->under_middle)
+			rx(stack_from, push_from);
+		else
+			rrx(stack_from, push_from);
+		set_index(stack_from, NULL);
+	}
+	while (cheapest->target->index != 0)
+	{
+		if (cheapest->target->under_middle)
+			rx(stack_to, push_to);
+		else
+			rrx(stack_to, push_to);
+		set_index(stack_to, NULL);
+	}
+}
+
 void	ft_prep_to_push(t_item **stack_from, t_item **stack_to, char push_to)
 {
 	t_item	*cheapest;
@@ -77,22 +103,7 @@ void	ft_prep_to_push(t_item **stack_from, t_item **stack_to, char push_to)
 			break ;
 		set_index(stack_from, stack_to);
 	}
-	while (cheapest->index != 0)
-	{
-		if (cheapest->under_middle)
-			rx(stack_from, push_from);
-		else
-			rrx(stack_from, push_from);
-		set_index(stack_from, NULL);
-	}
-	while (cheapest->target->index != 0)
-	{
-		if (cheapest->target->under_middle)
-			rx(stack_to, push_to);
-		else
-			rrx(stack_to, push_to);
-		set_index(stack_to, NULL);
-	}
+	ft_prep_to_push_aux(cheapest, stack_from, stack_to, push_to);
 }
 
 void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to)
