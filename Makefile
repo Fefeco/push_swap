@@ -6,15 +6,13 @@
 #    By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/15 10:33:30 by fcarranz          #+#    #+#              #
-#    Updated: 2024/04/27 14:42:55 by fcarranz         ###   ########.fr        #
+#    Updated: 2024/04/28 13:05:48 by fcarranz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME=push_swap
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra
-DEB=-g
 OBJDIR=obj/
 
 LIBFT_PATH=libft/
@@ -39,13 +37,9 @@ $(NAME): $(OBJS) Makefile push_swap.h
 	@make -C $(LIBFT_PATH)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
-debug: $(OBJS) Makefile push_swap.h 
-	make -C $(LIBFT_PATH) 
-	$(CC) $(CFLAGS) $(DEB) $(OBJS) $(LIBFT) -o $(NAME)
-
 $(OBJDIR)%.o: %.c
 	@mkdir -p obj
-	$(CC) $(CFLAGS) $(DEB) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
 	@make clean -C $(LIBFT_PATH)
