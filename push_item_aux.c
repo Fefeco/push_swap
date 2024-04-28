@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:57:37 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 14:46:31 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 11:51:29 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,24 @@
 
 void	ft_set_mid(t_item *stk_from, t_item *stk_to, int len_from, int len_to)
 {
-	while (stk_from)
+	t_item	*tmp;
+	int		len;
+	int		i;
+
+	tmp = stk_from;
+	len = len_from;
+	i = 0;
+	while (i < 2)
 	{
-		stk_from->len_to_end = len_from - stk_from->index;
-		stk_from = stk_from->next;
-	}
-	while (stk_to)
-	{
-		stk_to->len_to_end = len_to - stk_to->index;
-		stk_to = stk_to->next;
+		++i;
+		while (tmp)
+		{
+			tmp->len_to_end = len - tmp->index;
+			tmp->under_middle = tmp->index < tmp->len_to_end;
+			tmp = tmp->next;
+		}
+		tmp = stk_to;
+		len = len_to;
 	}
 }
 

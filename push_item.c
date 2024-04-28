@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 14:46:39 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 11:54:34 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_calc_moves(t_item *item)
 {
-	item->under_middle = item->index < item->len_to_end;
 	if (item->under_middle && item->target->under_middle)
 	{
 		if (item->index >= item->target->index)
