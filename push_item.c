@@ -6,13 +6,13 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 12:39:34 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:54:14 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_calc_moves(t_item *item)
+static int	ft_calc_moves(t_item *item)
 {
 	if (item->under_middle && item->target->under_middle)
 	{
@@ -37,7 +37,7 @@ int	ft_calc_moves(t_item *item)
 	}
 }
 
-void	ft_calc_cost(t_item *item, t_item **stack_to, char push_to)
+static void	ft_calc_cost(t_item *item, t_item **stack_to, char push_to)
 {
 	t_item	*head;
 
@@ -58,7 +58,7 @@ void	ft_calc_cost(t_item *item, t_item **stack_to, char push_to)
 	}
 }
 
-void	ft_prep_to_push_aux(t_item *cheapest, t_item **stack_from,
+static void	ft_prep_to_push_aux(t_item *cheapest, t_item **stack_from,
 		t_item **stack_to, char push_to)
 {
 	int		push_from;
@@ -84,7 +84,7 @@ void	ft_prep_to_push_aux(t_item *cheapest, t_item **stack_from,
 	}
 }
 
-void	ft_prep_to_push(t_item **stack_from, t_item **stack_to, char push_to)
+static void	ft_prep_to_push(t_item **stack_from, t_item **stack_to, char push_to)
 {
 	t_item	*cheapest;
 	int		push_from;

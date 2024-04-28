@@ -6,13 +6,13 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:23:41 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 13:40:24 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:53:09 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_order_three(t_item **stack)
+static void	ft_order_three(t_item **stack)
 {
 	t_item	*biggest_node;
 

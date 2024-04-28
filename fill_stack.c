@@ -6,13 +6,13 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/22 12:15:21 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:52:14 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_append_node(t_item **stack, int value, int index)
+static void	ft_append_node(t_item **stack, int value, int index)
 {
 	t_item	*item;
 	t_item	*head;
@@ -39,7 +39,7 @@ void	ft_append_node(t_item **stack, int value, int index)
 	*stack = head;
 }
 
-int	ft_exist_value(t_item **stack, int arg)
+static int	ft_exist_value(t_item **stack, int arg)
 {
 	t_item	*item;
 
@@ -53,7 +53,7 @@ int	ft_exist_value(t_item **stack, int arg)
 	return (0);
 }
 
-int	ft_is_not_number(char *str)
+static int	ft_is_not_number(char *str)
 {
 	if (!*str)
 		return (1);
@@ -65,7 +65,7 @@ int	ft_is_not_number(char *str)
 	return (0);
 }
 
-int	ft_get_number(char *str, int *value)
+static int	ft_get_number(char *str, int *value)
 {
 	long	nb;
 
