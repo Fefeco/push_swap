@@ -6,13 +6,13 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 14:41:08 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 14:41:59 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:38:45 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_item **stack_from, t_item **stack_to, char push_to)
+void	px(t_item **stack_from, t_item **stack_to, char push_to)
 {
 	if (!*stack_to)
 	{

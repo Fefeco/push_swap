@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 12:35:54 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/04/28 12:39:34 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,9 @@ void	ft_push_item(t_item **stack_from, t_item **stack_to, char push_to)
 	len_stk_from = ft_stack_size(*stack_from);
 	len_stk_to = ft_stack_size(*stack_to);
 	if (len_stk_to < 2 && push_to == PUSH_TO_B)
-		return (push(stack_from, stack_to, push_to));
+		return (px(stack_from, stack_to, push_to));
 	ft_set_mid(*stack_from, *stack_to, len_stk_from, len_stk_to);
 	ft_calc_cost(*stack_from, stack_to, push_to);
 	ft_prep_to_push(stack_from, stack_to, push_to);
-	push(stack_from, stack_to, push_to);
+	px(stack_from, stack_to, push_to);
 }
