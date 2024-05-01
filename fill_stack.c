@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/05/01 13:35:05 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:50:00 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static int	ft_is_not_number(char *str)
 		return (1);
 	if (*str == '-')
 		++str;
+	if (!*str)
+		return (perror("Error\nINVALID CHAR"), 1);
 	while (*str)
 		if (!ft_strchr(NUMBERS, *str++))
 			return (perror("Error\nINVALID CHAR"), 1);
