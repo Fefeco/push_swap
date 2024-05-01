@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 13:30:27 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:35:05 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	ft_get_number(char *str, int *value)
 	long	nb;
 
 	nb = ft_atol(str);
-	if (nb > INT_MAX || nb < INT_MIN)
+	if ((nb > INT_MAX || nb < INT_MIN) && ft_len_char_nb(str) > 11)
 	{
 		perror("NUMBER EXCEED TYPE INT\n");
 		return (1);
