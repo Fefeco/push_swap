@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:23:41 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 13:34:28 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:40:51 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void	ft_order(t_item **stack_a, t_item **stack_b)
 	int	stack_size;
 
 	stack_size = ft_stack_size(*stack_a);
-	if (stack_size <= 3)
+	if (stack_size == 2)
+		return (sx(stack_a, 'a'));
+	if (stack_size == 3)
 		return (ft_order_three(stack_a));
 	while (stack_size-- > 3)
 		ft_push_item(stack_a, stack_b, PUSH_TO_B);

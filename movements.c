@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 09:44:44 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/27 14:42:21 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:39:13 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	sx(t_item **stack, char s_to)
 	(*stack)->next = (*stack)->next->next;
 	(*stack)->prev->next = *stack;
 	(*stack)->prev->prev = NULL;
-	(*stack)->next->prev = *stack;
 	*stack = (*stack)->prev;
 	if (s_to)
 		ft_printf("s%c\n", s_to);
