@@ -6,14 +6,14 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 11:05:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/20 13:01:37 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:11:55 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long	ft_atol(const char *str)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	nb;
 
 	i = 0;

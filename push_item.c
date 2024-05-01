@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 14:55:28 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 12:54:14 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/01 10:11:06 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ static void	ft_prep_to_push_aux(t_item *cheapest, t_item **stack_from,
 	}
 }
 
-static void	ft_prep_to_push(t_item **stack_from, t_item **stack_to, char push_to)
+static void	ft_prep_to_push(t_item **stack_from, t_item **stack_to,
+		char push_to)
 {
 	t_item	*cheapest;
 	int		push_from;
