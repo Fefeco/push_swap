@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:55:20 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/05/01 13:50:00 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/05 14:50:28 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_exist_value(t_item **stack, int arg)
 	while (item)
 	{
 		if (arg == item->value)
-			return (perror("Error\nDUPLICATED VALUE\n"), 1);
+			return (ft_printf("Error\n"), 1);
 		item = item->next;
 	}
 	return (0);
@@ -60,10 +60,10 @@ static int	ft_is_not_number(char *str)
 	if (*str == '-')
 		++str;
 	if (!*str)
-		return (perror("Error\nINVALID CHAR"), 1);
+		return (ft_printf("Error\n"), 1);
 	while (*str)
 		if (!ft_strchr(NUMBERS, *str++))
-			return (perror("Error\nINVALID CHAR"), 1);
+			return (ft_printf("Error\n"), 1);
 	return (0);
 }
 
@@ -73,10 +73,7 @@ static int	ft_get_number(char *str, int *value)
 
 	nb = ft_atol(str);
 	if ((nb > INT_MAX || nb < INT_MIN) && ft_len_char_nb(str) > 11)
-	{
-		perror("NUMBER EXCEED TYPE INT\n");
-		return (1);
-	}
+		return (ft_printf("Error\n"), 1);
 	*value = (int)nb;
 	return (0);
 }
