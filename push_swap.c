@@ -6,7 +6,7 @@
 /*   By: fcarranz <fcarranz@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 10:40:25 by fcarranz          #+#    #+#             */
-/*   Updated: 2024/04/28 13:34:14 by fcarranz         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:08:12 by fcarranz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc < 2 || !argv[1])
+	if (argc == 1)
 		return (1);
+	if (!argv[1][0])
+		return (write(STDERR_FILENO, "Error\n", 6), 1);
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
